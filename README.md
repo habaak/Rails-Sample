@@ -43,3 +43,45 @@ end
 <!-- views/home/index.html.erb -->
 hello world~~!!
 ```
+
+6. layout
+```erb
+<!-- 모든 html.erb file은 기본적으로 app/views/layout/application.html.erb의 영향을 받는다. -->
+<html>
+  <head>
+  </head>
+  <body>
+    <%=yield%>
+  </body>
+</html>
+```
+### form으로 데이터 받기
+1. `routes.rb`
+```ruby
+# config/routes.rb
+get '/geme' => 'ramdom#gmae'
+get '/gameresult' => 'ramdom#gameresult'
+```
+2. `random_controller.rb`
+```ruby
+# app/Controllers/random_controller.rb
+def game
+
+end
+
+def gameresult
+  @username = params[:name]
+end
+```
+
+3. `view` 파일 만들기
+```erb
+<!--app/views/random/game.html.erb-->
+<form action="/gameresult">
+  <input name="name"/>
+</form>
+```
+```erb
+<!--app/views/random/gameresult.html.erb-->
+<%=@name%>
+```

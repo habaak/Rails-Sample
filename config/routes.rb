@@ -8,4 +8,10 @@ Rails.application.routes.draw do
 
   #set variable
   get 'welcome/:name' => 'home#welcome'
+  get 'google' => 'home#google'
+  get 'game' => 'home#game'
+  get 'gameresult' => 'home#gameresult'
+  get 'random' => 'random#random'
+  get 'randomresult' => 'random#randomresult'
+  
 end
